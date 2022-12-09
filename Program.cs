@@ -13,7 +13,7 @@ namespace Lab_4_1_05
     {
         static void Main(string[] args)
         {
-            int n = 10;
+            int n = 2;
             int[] arr = new int[2*n];
             Random rand = new Random();
 
@@ -35,6 +35,12 @@ namespace Lab_4_1_05
             Console.WriteLine(sum_end);
 
             Console.WriteLine(sum_first - sum_end);
+
+            // Linq
+            var res = arr.Where((x, i) => i >= 0 && i < n).Sum()
+                     -arr.Where((x, i) => i >= n && i < 2 * n).Sum();
+            Console.WriteLine($"res = {res}");
+
             Console.ReadKey();                
         }
     }
